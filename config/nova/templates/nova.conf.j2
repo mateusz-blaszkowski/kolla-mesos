@@ -87,7 +87,7 @@ api_endpoint = http://{{ kolla_internal_address }}:{{ ironic_api_port }}/v1
 rabbit_userid = {{ rabbitmq_user }}
 rabbit_password = {{ rabbitmq_password }}
 rabbit_ha_queues = true
-rabbit_hosts = {{ list_ips_by_service('infra/rabbitmq/rabbitmq', rabbitmq_port) }}
+rabbit_hosts = {{ rabbitmq_address }}
 
 [oslo_concurrency]
 lock_path = /var/lib/nova/tmp

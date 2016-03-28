@@ -25,6 +25,11 @@ kolla_install_type: "binary"
 # Value set in the public_url endpoint in Keystone
 kolla_external_address: "{{ kolla_internal_address }}"
 
+####################
+# Rabbitmq options
+####################
+rabbitmq_address: "rabbitmq-rabbitmq-infra-{{ deployment_id }}.{{ marathon_framework }}.{{ mesos_dns_domain }}"
+
 
 ####################
 # Database options

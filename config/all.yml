@@ -144,6 +144,7 @@ neutron_server_host: "neutron-server-neutron-openstack-{{ deployment_id }}.{{ ma
 glance_api_host: "glance-api-glance-api-openstack-{{ deployment_id }}.{{ marathon_framework }}.{{ mesos_dns_domain }}"
 cinder_api_host: "cinder-api-cinder-openstack-{{ deployment_id }}.{{ marathon_framework }}.{{ mesos_dns_domain }}"
 nova_api_host: "nova-api-nova-openstack-{{ deployment_id }}.{{ marathon_framework }}.{{ mesos_dns_domain }}"
+ironic_api_host: "ironic-api-ironic-openstack-{{ deployment_id }}.{{ marathon_framework }}.{{ mesos_dns_domain }}"
 
 
 ####################

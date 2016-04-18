@@ -6,11 +6,16 @@ container:
   parameters:
     - key: volume
       value: "kolla_logs_{{ deployment_id }}_{{ timestamp }}:/var/log/kolla"
+  volumes:
+    - containerPath: "/tftpboot"
+      hostPath: "/tftpboot"
+      mode: RW
 service:
   daemon:
     dependencies:
      - path: ironic_ansible_tasks/create_user
      - path: ironic-api/db_sync
+     - path: ironic-pxe/tftpboot_create
     command: ironic-conductor --config-file /etc/ironic/ironic.conf --config-file /etc/ironic/ironic-override.conf
     files:
       ironic-override.conf:
@@ -31,3 +36,4 @@ service:
   cpus: {{ ironic_conductor_cpus }}
   instances: {{ controller_nodes }}
   constraints: {{ controller_constraints }}
+

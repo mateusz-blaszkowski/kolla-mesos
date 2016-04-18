@@ -25,6 +25,10 @@ ironic_api_image: "{{ docker_registry ~ '/' if docker_registry else '' }}{{ dock
 ironic_api_tag: "{{ openstack_release }}"
 ironic_api_image_full: "{{ ironic_api_image }}:{{ ironic_api_tag }}"
 
+ironic_pxe_image: "{{ docker_registry ~ '/' if docker_registry else '' }}{{ docker_namespace }}/{{ kolla_base_distro }}-{{ kolla_install_type }}-ironic-pxe"
+ironic_pxe_tag: "{{ openstack_release }}"
+ironic_pxe_image_full: "{{ ironic_pxe_image }}:{{ ironic_pxe_tag }}"
+
 ####################
 # Openstack
 ####################
@@ -49,6 +53,9 @@ ironic_api_cpus: "{{ ironic_api_cpus|default('0.3') }}"
 # ironic-compute
 ironic_compute_mem: "{{ ironic_compute_mem|default('1024') }}"
 ironic_compute_cpus: "{{ ironic_compute_cpus|default('2') }}"
+# ironic-pxe
+ironic_pxe_mem: "{{ ironic_pxe_mem|default('1024') }}"
+ironic_pxe_cpus: "{{ ironic_pxe_cpus|default('0.3') }}"
 # ironic-conductor
 ironic_conductor_mem: "{{ ironic_conductor_mem|default('1024') }}"
 ironic_conductor_cpus: "{{ ironic_conductor_cpus|default('0.3') }}"

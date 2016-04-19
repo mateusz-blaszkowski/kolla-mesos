@@ -1,20 +1,20 @@
 # ironic.conf
 [DEFAULT]
 debug = {{ ironic_logging_debug }}
+enabled_drivers = pxe_ipmitool,agent_ipmitool
 
-
-{% if service_name == 'ironic-api' %}
+{% if service_name == 'openstack/ironic/ironic-api' %}
 [api]
 host_ip = {{  get_ip_address(api_interface) }}
 {% endif %}
 
-{% if service_name == 'ironic-conductor' %}
+{% if service_name == 'openstack/ironic/ironic-conductor' %}
 [conductor]
-api_url = {{ internal_protocol }}://{{ ironic_api_host }}:{{ ironic_api_port }}
+api_url = http://{{ ironic_api_host }}:{{ ironic_api_port }}
 clean_nodes = false
 {% endif %}
 
-{% if service_name == 'ironic-inspector' %}
+{% if service_name == 'openstack/ironic/ironic-inspector' %}
 [ironic]
 
 [firewall]
@@ -32,7 +32,7 @@ auth_type = password
 project_domain_id = default
 user_domain_id = default
 project_name = service
-user-name = {{ ironic_keystone_user }}
+username = {{ ironic_keystone_user }}
 password = {{ ironic_keystone_password }}
 admin_username = {{ ironic_keystone_user }}
 admin_password = {{ ironic_keystone_password }}

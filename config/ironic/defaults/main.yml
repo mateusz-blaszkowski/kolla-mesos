@@ -42,7 +42,7 @@ ironic_logging_debug: "{{ openstack_logging_debug }}"
 
 ironic_keystone_user: "ironic"
 
-openstack_ironic_auth: "{'auth_url':'{{ openstack_auth.auth_url }}','username':'{{ openstack_auth.username }}','password':'{{ openstack_auth.password }}','project_name':'{{ openstack_auth.project_name }}'}"
+openstack_ironic_auth: "{'auth_url':'{{ openstack_auth_url }}','username':'{{ openstack_username }}','password':'{{ openstack_password }}','project_name':'{{ openstack_project_name }}'}"
 
 ####################
 # Resources

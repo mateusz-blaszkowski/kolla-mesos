@@ -18,6 +18,8 @@ notification_driver = noop
 
 use_neutron = True
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
+security_group_api = neutron
+network_api_class = nova.network.neutronv2.api.API
 
 {% if neutron_plugin_agent == "openvswitch" %}
 linuxnet_interface_driver = nova.network.linux_net.LinuxOVSInterfaceDriver
